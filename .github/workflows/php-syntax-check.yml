@@ -1,0 +1,27 @@
+name: Check PHP Syntax on Push
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  check-syntax:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: dom, curl, libxml, mbstring, zip, bcmath, pdo_mysql
+          coverage: none
+
+      - name: Check PHP syntax using PHPLint
+        uses: overtrue/phplint@7.4
+        with:
+          path: .
+          options: '--exclude=vendor --exclude=storage'
