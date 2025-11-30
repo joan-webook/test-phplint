@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sample;
+use App\Models\Sample;
 use Illuminate\Http\Request;
 
 class SampleController extends Controller
@@ -14,8 +15,8 @@ class SampleController extends Controller
      */
     public function index()
     {
-        $sample = Sample::all()
-        return $sample;
+        $samples = Sample::all();
+        return $samples;
     }
 
     /**
