@@ -14,8 +14,8 @@ class SampleController extends Controller
      */
     public function index()
     {
-        $samples2 = Sample::all();
-        return $samples2;
+        $sample = Sample::all();
+        return $sample;
     }
 
     /**
